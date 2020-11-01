@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 public class Empresa extends Stakeholder{
     private ArrayList<Stakeholder> miembros;
     private ArrayList<Ruta> rutas;
-    private ArrayList<Viaje> viajes;
     private int arboles;
     private String name, direccion, nit, email, password;
     private String REG_EXP = "\\¿+|\\?+|\\°+|\\¬+|\\|+|\\!+|\\#+|\\$+|\\)+|"
