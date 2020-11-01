@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Singlenton {
 
-    private ArrayList<Stakeholder> miembros;
+    private ArrayList<Stakeholder> miembros=new ArrayList<>();
 
     private static Singlenton instancia = null;
 
@@ -37,7 +37,7 @@ public class Singlenton {
         String answer="Registro fallido";
 
         int contador=0;
-        /**for(int i=0;i<miembros.size();i++){
+        for(int i=0;i<miembros.size();i++){
              if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
                 answer="El biciusuario ya existe!";
             }
@@ -45,12 +45,11 @@ public class Singlenton {
                 contador++;
             }
         }
-  
         if(contador==miembros.size()){
             Stakeholder biciusuario=new Biciusuario(nombre,email,password);
             miembros.add(biciusuario);
             answer="Registrado correctamente";
-        }*/
+        }
 
         return answer + contador;
     }
