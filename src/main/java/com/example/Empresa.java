@@ -1,4 +1,4 @@
-package launch;
+package com.example;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -10,7 +10,7 @@ import javax.swing.JPanel;
  *
  * @author Randy
  */
-public class Empresa extends Stakeholder{
+public class Empresa extends Stakeholder {
     private ArrayList<Stakeholder> miembros;
     private ArrayList<Ruta> rutas;
     private int arboles;
@@ -34,7 +34,6 @@ public class Empresa extends Stakeholder{
             this.direccion=direccion;
             miembros =new ArrayList<>();
             rutas=new ArrayList<>();
-            viajes=new ArrayList<>();
             arboles=0;
             System.out.println("creando empresa...");
         }else{
