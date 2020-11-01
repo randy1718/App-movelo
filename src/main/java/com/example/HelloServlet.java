@@ -16,7 +16,7 @@ public class HelloServlet{
         String respuesta="";
         Singlenton nuevo=Singlenton.laConstructora();
         if(email.equals("") || password.equals("")){
-            respuesta= "No se ingresaron los datos";
+            respuesta= "No se ingresaron los datos!...";
         }else if(!password.equals(conPassword)) {
             respuesta="Las contraseñas no coinciden";
         }else{
