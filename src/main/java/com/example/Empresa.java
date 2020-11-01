@@ -1,36 +1,47 @@
 package launch;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
+/**
+ *
+ * @author Randy
+ */
 public class Empresa extends Stakeholder{
     private ArrayList<Stakeholder> miembros;
     private ArrayList<Ruta> rutas;
-    private ArrayList<Arbol> arboles;
+    private ArrayList<Viaje> viajes;
+    private int arboles;
     private String name, direccion, nit, email, password;
     private String REG_EXP = "\\¿+|\\?+|\\°+|\\¬+|\\|+|\\!+|\\#+|\\$+|\\)+|"
-                + "\\%+|\\&+|\\(+|\\=+|\\’+|\\¡+|\\++|\\*+|\\~+|\\[+|\\]"
-                + "+|\\{+|\\}+|\\^+|\\<+|\\>+|\\/+|\\\"+";
+            + "\\%+|\\&+|\\(+|\\=+|\\’+|\\¡+|\\++|\\*+|\\~+|\\[+|\\]"
+            + "+|\\{+|\\}+|\\^+|\\<+|\\>+|\\/+|\\\"+";
+
     public Empresa(String nombre, String email, String password, String direccion, String nit){
         Pattern pattern = Pattern.compile(REG_EXP);
         Matcher matcher = pattern.matcher(password);
         int mayusculas = verificarMayusculas(password);
         int arroba=verificarCorreo(email);
         int numeros=verificarNumeros(password);
-        
+
         if(password.length()>=8 && matcher.find() && mayusculas>=1 && arroba==1 && numeros>=1 && !email.equals("") && !nombre.equals("") && nit.length()==9){
-           name=nombre;
-           this.password=password;
-           this.email=email;
-           this.nit=nit;
-           this.direccion=direccion;
-           miembros =new ArrayList<>();
-           rutas=new ArrayList<>();
-           viajes=new ArrayList<>();
-           arboles=0;
-           System.out.println("creando empresa...");
+            name=nombre;
+            this.password=password;
+            this.email=email;
+            this.nit=nit;
+            this.direccion=direccion;
+            miembros =new ArrayList<>();
+            rutas=new ArrayList<>();
+            viajes=new ArrayList<>();
+            arboles=0;
+            System.out.println("creando empresa...");
         }else{
-           JPanel panel=new JPanel();
-           JOptionPane.showMessageDialog(panel,"La empresa "+nombre+" tiene la contraseña o el correo invalidos","Error", JOptionPane.ERROR_MESSAGE);
-        }           
+            JPanel panel=new JPanel();
+            JOptionPane.showMessageDialog(panel,"La empresa "+nombre+" tiene la contraseña o el correo invalidos","Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void addMiembros(Stakeholder miembro){
@@ -148,7 +159,7 @@ public class Empresa extends Stakeholder{
     public String getDireccion(){
         return direccion;
     }
-    
+
     @Override
     public final int verificarMayusculas(String clave) {
         int contador = 0;
@@ -162,7 +173,7 @@ public class Empresa extends Stakeholder{
 
         return contador;
     }
-    
+
     @Override
     public final int verificarCorreo(String correo) {
         int contador = 0;
@@ -177,7 +188,7 @@ public class Empresa extends Stakeholder{
 
         return contador;
     }
-    
+
     @Override
     public final int verificarNumeros(String clave) {
         int contador = 0;
@@ -192,6 +203,5 @@ public class Empresa extends Stakeholder{
 
         return contador;
     }
-
 
 }
