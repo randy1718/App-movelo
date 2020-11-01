@@ -38,18 +38,24 @@ public class Singlenton {
 
         int contador=0;
         for(int i=0;i<miembros.size();i++){
-             if(email.equals(miembros.get(i).getEmail())){
+             if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
                 answer="El biciusuario ya existe!";
             }else{
                 contador++;
-                answer=""+miembros.get(i).getEmail();
             }
         }
-        
+
         if(contador==miembros.size()){
             Stakeholder biciusuario=new Biciusuario(nombre,email,password);
             miembros.add(biciusuario);
-            answer="Registrado correctamente";
+            for(int i=0;i<miembros.size();i++){
+                if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
+                    answer="Registrado correctamente";
+                }else{
+                    answer="Algo fallo mi ciela";
+                }
+            }
+            
         }
 
         return answer + miembros.size();
