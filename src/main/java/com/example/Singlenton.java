@@ -34,7 +34,7 @@ public class Singlenton {
     }
 
     public String registroBiciusuario(String nombre,String email,String password) {
-        String respuesta="";
+        String respuesta="Registro fallido";
 
         int contador=0;
         for(int i=0;i<miembros.size();i++){
@@ -45,7 +45,7 @@ public class Singlenton {
                 contador++;
             }
         }
-        
+
         if(contador==miembros.size()){
             Stakeholder biciusuario=new Biciusuario(nombre,email,password);
             miembros.add(biciusuario);
