@@ -24,7 +24,7 @@ public class Singlenton {
                 if (email.equals(miembros.get(i).getEmail()) && password.equals(miembros.get(i).getPassword())) {
                     respuesta="Biciusuario";
                 }
-            }else if(miembros.get(i) instanceof Biciusuario){
+            }else if(miembros.get(i) instanceof Empresa){
                 if (email.equals(miembros.get(i).getEmail()) && password.equals(miembros.get(i).getPassword())) {
                     respuesta="Empresa";
                 }
