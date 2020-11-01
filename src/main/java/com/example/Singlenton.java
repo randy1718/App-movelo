@@ -43,6 +43,7 @@ public class Singlenton {
             }
             else{
                 contador++;
+                answer=""+miembros.get(i).getEmail();
             }
         }
         if(contador==miembros.size()){
