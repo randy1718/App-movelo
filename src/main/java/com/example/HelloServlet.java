@@ -22,7 +22,7 @@ public class HelloServlet{
             respuesta="Las contraseñas no coinciden";
         }else{
             respuesta=nuevo.registroBiciusuario(nombre,email,password);
-            respuesta="Registro correcto";
+            
         }
         return respuesta;
     }
