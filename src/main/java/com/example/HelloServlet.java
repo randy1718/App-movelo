@@ -21,7 +21,7 @@ public class HelloServlet{
         }else if(!password.equals(conPassword)) {
             respuesta="Las contraseñas no coinciden";
         }else{
-            respuesta=nuevo.registroBiciusuario(nombre,email,password);
+            //respuesta=nuevo.registroBiciusuario(nombre,email,password);
             respuesta="Registro correcto";
         }
         return respuesta;
