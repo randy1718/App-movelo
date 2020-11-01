@@ -50,14 +50,14 @@ public class Singlenton {
             miembros.add(biciusuario);
             for(int i=0;i<miembros.size();i++){
                 if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
-                    answer="Registrado correctamente";
+                    answer="Registrado correctamente!";
                 }else{
-                    answer="Algo fallo mi ciela";
+                    answer="La contraseña o el correo estan incorrectos!";
                 }
             }
             
         }
 
-        return answer + miembros.size();
+        return answer;
     }
 }
