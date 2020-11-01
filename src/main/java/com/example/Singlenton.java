@@ -36,7 +36,7 @@ public class Singlenton {
     public String registroBiciusuario(String nombre,String email,String password) {
         String respuesta="Registro fallido";
 
-        int contador=0;
+        /**int contador=0;
         for(int i=0;i<miembros.size();i++){
             if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
                 respuesta="El biciusuario ya existe!";
@@ -51,6 +51,7 @@ public class Singlenton {
             miembros.add(biciusuario);
             respuesta="Registrado correctamente";
         }
+        */
 
         return respuesta;
     }
