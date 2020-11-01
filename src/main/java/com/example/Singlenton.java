@@ -45,6 +45,7 @@ public class Singlenton {
                 contador++;
             }
         }
+        
         if(contador==miembros.size()){
             Stakeholder biciusuario=new Biciusuario(nombre,email,password);
             miembros.add(biciusuario);
