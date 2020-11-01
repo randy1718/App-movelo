@@ -44,13 +44,13 @@ public class Singlenton {
             else{
                 contador++;
             }
-        }*/
+        }
   
         if(contador==miembros.size()){
             Stakeholder biciusuario=new Biciusuario(nombre,email,password);
             miembros.add(biciusuario);
             answer="Registrado correctamente";
-        }
+        }*/
 
         return answer + contador;
     }
