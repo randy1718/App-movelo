@@ -51,6 +51,6 @@ public class Singlenton {
             answer="Registrado correctamente";
         }
 
-        return answer + contador;
+        return answer + miembros.size();
     }
 }
