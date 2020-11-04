@@ -42,6 +42,10 @@ public class Biciusuario extends Stakeholder{
 
     }
 
+    public void addRuta(Ruta ruta){
+        rutas.add(ruta);
+    }
+
     @Override
     public String mostrarDatos() {
         return "Datos Biciusuario: \n"+"Nombre: "+name+"\nEmail: "+correo+"\n\n";

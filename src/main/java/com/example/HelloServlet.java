@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 @SpringBootApplication
 
@@ -40,6 +42,25 @@ public class HelloServlet{
 
     @RequestMapping(value="/RegistroEmpresa",method = RequestMethod.POST)
     @ResponseBody
+
+    String registroEmpresa(){
+        return "";
+    }
+
+    @RequestMapping(value="/GuardarRuta",method = RequestMethod.POST)
+    @ResponseBody
+
+    String guardarRuta(ArrayList<Punto> ruta, String email){
+        String respuesta="No se guardo...";
+
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            Ruta r = new Ruta(ruta);
+            respuesta = nuevo.guardarRuta(r, email);
+        }
+
+        return respuesta;
+    }
 
 
     public static void main(String[] args) {

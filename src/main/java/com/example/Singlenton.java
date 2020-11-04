@@ -60,4 +60,22 @@ public class Singlenton {
 
         return answer;
     }
+
+    public String guardarRuta(Ruta ruta,String emailBiciusuario){
+        String respuesta="No se añadio";
+
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)){
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    user.addRuta(ruta);
+                    respuesta="ruta añadida correctamente";
+                }
+            }
+        }
+
+
+        return respuesta;
+    }
+
 }
