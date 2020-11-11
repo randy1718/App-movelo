@@ -62,6 +62,30 @@ public class HelloServlet{
         return respuesta;
     }
 
+    @RequestMapping(value="/AgregarPuntos",method = RequestMethod.POST)
+    @ResponseBody
+
+    String agregarPuntos(Double distanciaRecorrida,String email){
+        String respuesta="Algo falloooo";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            int puntos = Integer.parseInt(String.valueOf(Math.round(distanciaRecorrida * 10)));
+            respuesta=nuevo.agregarPuntos(puntos, email);
+        }
+        return respuesta;
+    }
+
+    @RequestMapping(value="/ComprarArbol",method = RequestMethod.POST)
+    @ResponseBody
+
+    String comprarArbol(Arbol tree, int points, String email){
+        String respuesta="Failed...";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            respuesta=nuevo.comprarArbol(tree,points,email);
+        }
+        return respuesta;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(HelloServlet.class, args);

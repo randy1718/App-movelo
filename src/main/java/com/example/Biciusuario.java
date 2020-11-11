@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 public class Biciusuario extends Stakeholder{
 
+    private int puntos;
     private ArrayList<Ruta> rutas;
     private ArrayList<Arbol> arboles;
     private String name,correo,clave;
@@ -41,6 +42,27 @@ public class Biciusuario extends Stakeholder{
         }
 
     }
+
+    public void agregarPuntos(int points){
+        puntos+=points;
+    }
+
+    public int getPuntos(){
+        return puntos;
+    }
+
+    public void disminuirPuntos(int points){
+        puntos-=points;
+    }
+
+    public void addArbol(Arbol tree){
+        arboles.add(tree);
+    }
+
+    public ArrayList<Arbol> getArboles() {
+        return arboles;
+    }
+
 
     public void addRuta(Ruta ruta){
         rutas.add(ruta);

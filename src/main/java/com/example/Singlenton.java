@@ -74,7 +74,37 @@ public class Singlenton {
             }
         }
 
+        return respuesta;
+    }
 
+    public String agregarPuntos(int puntos, String emailBiciusuario){
+        String respuesta="No se agregaron los puntos...";
+
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)) {
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    user.agregarPuntos(puntos);
+                    respuesta="Se añadieron "+puntos+" puntos correctamente! GOOD JOB!";
+                }
+            }
+        }
+
+        return respuesta;
+    }
+
+    public String comprarArbol(Arbol arbol,int puntos, String emailBiciusuario){
+        String respuesta="";
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)) {
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    user.disminuirPuntos(puntos);
+                    user.addArbol(arbol);
+                    respuesta="Se añadio correctamente el arbol: "+arbol.getName()+" comprado";
+                }
+            }
+        }
         return respuesta;
     }
 
