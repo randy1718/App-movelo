@@ -87,6 +87,18 @@ public class HelloServlet{
         return respuesta;
     }
 
+    @RequestMapping(value="/DarPuntos",method = RequestMethod.POST)
+    @ResponseBody
+
+    String darPuntos(String email){
+        String respuesta="Failed...";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            respuesta=nuevo.darPuntos(email);
+        }
+        return respuesta;
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(HelloServlet.class, args);
     }
