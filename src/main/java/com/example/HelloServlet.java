@@ -100,6 +100,20 @@ public class HelloServlet{
         return respuesta;
     }
 
+    @RequestMapping(value="/DarArboles",method = RequestMethod.POST)
+    @ResponseBody
+
+    String darArboles(String email){
+        String respuesta="Failed...";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            respuesta=nuevo.darArboles(email);
+        }
+        return respuesta;
+    }
+
+
+
     public static void main(String[] args) {
         SpringApplication.run(HelloServlet.class, args);
     }

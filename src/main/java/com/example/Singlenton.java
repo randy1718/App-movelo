@@ -106,6 +106,19 @@ public class Singlenton {
         return  respuesta;
     }
 
+    public String darArboles(String emailBiciusuario){
+        String respuesta="";
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)) {
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    respuesta=String.valueOf(user.getArboles().size());
+                }
+            }
+        }
+        return respuesta;
+    }
+
     public String comprarArbol(Arbol arbol,int puntos, String emailBiciusuario){
         String respuesta="";
         for(int i=0;i<miembros.size();i++){
