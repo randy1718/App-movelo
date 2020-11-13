@@ -78,7 +78,7 @@ public class HelloServlet{
     @RequestMapping(value="/ComprarArbol",method = RequestMethod.POST)
     @ResponseBody
 
-    String comprarArbol(String nameArbol,String huellaCarbono, int points, String email){
+    String comprarArbol(String nameArbol,Double huellaCarbono, int points, String email){
         String respuesta="Failed...";
         Arbol tree=new Arbol(nameArbol,points,huellaCarbono);
         Singlenton nuevo=Singlenton.laConstructora();
