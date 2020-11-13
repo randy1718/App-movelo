@@ -112,6 +112,29 @@ public class HelloServlet{
         return respuesta;
     }
 
+    @RequestMapping(value="/DarHuellaCarbono",method = RequestMethod.POST)
+    @ResponseBody
+
+    String darHuellaCarbono(String email){
+        String respuesta="Failed...";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            respuesta=nuevo.darHuellaCarbono(email);
+        }
+        return respuesta;
+    }
+
+    @RequestMapping(value="/DarNombreUsuario",method = RequestMethod.POST)
+    @ResponseBody
+
+    String darNombreUsuario(String email){
+        String respuesta="Failed...";
+        Singlenton nuevo=Singlenton.laConstructora();
+        if(!email.isEmpty()) {
+            respuesta=nuevo.darNombreUsuario(email);
+        }
+        return respuesta;
+    }
 
 
     public static void main(String[] args) {

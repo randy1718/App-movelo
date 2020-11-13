@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 public class Biciusuario extends Stakeholder{
 
     private int puntos;
+    private double huellaCarbono;
     private ArrayList<Ruta> rutas;
     private ArrayList<Arbol> arboles;
     private String name,correo,clave;
@@ -63,6 +64,13 @@ public class Biciusuario extends Stakeholder{
         return arboles;
     }
 
+    public double getHuellaCarbono(){
+        double huella=0.0;
+        for(int i=0;i<arboles.size();i++){
+            huella+=arboles.get(i).getHuellaCarbono();
+        }
+        return huella;
+    }
 
     public void addRuta(Ruta ruta){
         rutas.add(ruta);

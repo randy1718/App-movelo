@@ -134,4 +134,30 @@ public class Singlenton {
         return respuesta;
     }
 
+    public String darHuellaCarbono(String emailBiciusuario){
+        String respuesta="";
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)) {
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    respuesta=String.valueOf(user.getHuellaCarbono());
+                }
+            }
+        }
+        return respuesta;
+    }
+
+    public String darNombreUsuario(String emailBiciusuario){
+        String respuesta="";
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)) {
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    respuesta=user.getNombre();
+                }
+            }
+        }
+        return respuesta;
+    }
+
 }
