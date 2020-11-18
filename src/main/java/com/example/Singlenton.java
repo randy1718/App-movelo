@@ -38,7 +38,7 @@ public class Singlenton {
 
         int contador=0;
         for(int i=0;i<miembros.size();i++){
-             if(email.equals(miembros.get(i).getEmail()) || nombre.equals(miembros.get(i).getNombre())){
+             if(email.equals(miembros.get(i).getEmail())){
                 answer="El biciusuario ya existe!";
             }else{
                 contador++;
@@ -63,11 +63,20 @@ public class Singlenton {
 
     public String guardarRuta(Ruta ruta,String emailBiciusuario){
         String respuesta="No se añadio";
+        int code=ruta.getCode();
 
         for(int i=0;i<miembros.size();i++){
             if(miembros.get(i) instanceof Biciusuario){
                 if (miembros.get(i).getEmail().equals(emailBiciusuario)){
                     Biciusuario user= (Biciusuario) miembros.get(i);
+                    ArrayList<Ruta> rutas=user.getRutas();
+                    if(rutas.size()>0) {
+                        for (int j = 0; j < rutas.size(); j++) {
+                            if (rutas.get(j).getCode() == code) {
+                                ruta.setCode(code+20);
+                            }
+                        }
+                    }
                     user.addRuta(ruta);
                     respuesta="ruta añadida correctamente";
                 }
@@ -75,6 +84,32 @@ public class Singlenton {
         }
 
         return respuesta;
+    }
+
+    public ArrayList<Ruta> getRutas(String emailBiciusuario){
+        ArrayList<Ruta> rutas=new ArrayList<>();
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)){
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    rutas=user.getRutas();
+                }
+            }
+        }
+        return rutas;
+    }
+
+    public Ruta getRuta(int code, String emailBiciusuario){
+        Ruta ruta=null;
+        for(int i=0;i<miembros.size();i++){
+            if(miembros.get(i) instanceof Biciusuario){
+                if (miembros.get(i).getEmail().equals(emailBiciusuario)){
+                    Biciusuario user= (Biciusuario) miembros.get(i);
+                    ruta=user.getRuta(code);
+                }
+            }
+        }
+        return ruta;
     }
 
     public String agregarPuntos(int puntos, String emailBiciusuario){
@@ -127,7 +162,7 @@ public class Singlenton {
                     Biciusuario user= (Biciusuario) miembros.get(i);
                     user.disminuirPuntos(puntos);
                     user.addArbol(arbol);
-                    respuesta="Se añadio correctamente el arbol: "+arbol.getName()+" comprado";
+                    respuesta="Se añadio correctamente el arbol: "+arbol.getName();
                 }
             }
         }
@@ -135,7 +170,7 @@ public class Singlenton {
     }
 
     public String darHuellaCarbono(String emailBiciusuario){
-        String respuesta="";
+        String respuesta="0";
         for(int i=0;i<miembros.size();i++){
             if(miembros.get(i) instanceof Biciusuario){
                 if (miembros.get(i).getEmail().equals(emailBiciusuario)) {

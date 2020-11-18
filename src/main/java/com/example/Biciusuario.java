@@ -27,7 +27,7 @@ public class Biciusuario extends Stakeholder{
             int numeros=verificarNumeros(password);
 
 
-            if(password.length()>=8 && matcher.find() && mayusculas>=1 && arroba==1 && numeros>=1 && !email.isEmpty() && !nombre.isEmpty()) {
+            if(password.length()>=8 && matcher.find() && mayusculas>=1 && arroba==2 && numeros>=1 && !email.isEmpty() && !nombre.isEmpty()) {
                 name = nombre;
                 correo = email;
                 clave = password;
@@ -57,11 +57,24 @@ public class Biciusuario extends Stakeholder{
     }
 
     public void addArbol(Arbol tree){
+        huellaCarbono+=tree.getHuellaCarbono();
         arboles.add(tree);
     }
 
     public ArrayList<Arbol> getArboles() {
         return arboles;
+    }
+
+    public Arbol getArbol(String name){
+        Arbol tree=null;
+        int cantidad=0;
+        for(int i=0;i<arboles.size();i++){
+            if(arboles.get(i).getName().equals(name)){
+                cantidad+=1;
+                tree=arboles.get(i);
+            }
+        }
+        return tree;
     }
 
     public double getHuellaCarbono(){
@@ -74,6 +87,19 @@ public class Biciusuario extends Stakeholder{
 
     public void addRuta(Ruta ruta){
         rutas.add(ruta);
+    }
+    public ArrayList<Ruta> getRutas(){
+        return rutas;
+    }
+
+    public Ruta getRuta(int code){
+        Ruta ruta=null;
+        for(int i=0;i<rutas.size();i++){
+            if(rutas.get(i).getCode()==code){
+                ruta=rutas.get(i);
+            }
+        }
+        return ruta;
     }
 
     @Override
@@ -153,6 +179,9 @@ public class Biciusuario extends Stakeholder{
             letra = correo.charAt(i);
             String let=String.valueOf(letra);
             if (let.equals("@")) {
+                contador = contador + 1;
+            }
+            if(let.equals(".")){
                 contador = contador + 1;
             }
         }
